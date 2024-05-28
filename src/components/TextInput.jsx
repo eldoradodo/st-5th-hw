@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import { useState, useContext } from "react";
+import { TextContext } from "../TextContext.jsx";
 
-function TextInput({ onAddText }) {
+function TextInput() {
   const [inputValue, setInputValue] = useState("");
+  const { addText } = useContext(TextContext);
 
   const handleChange = (e) => {
     setInputValue(e.target.value);
@@ -10,7 +12,7 @@ function TextInput({ onAddText }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (inputValue.trim()) {
-      onAddText(inputValue);
+      addText(inputValue);
       setInputValue("");
     }
   };

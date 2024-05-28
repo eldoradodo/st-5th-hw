@@ -1,4 +1,9 @@
-export default function TextList({ texts }) {
+import { useContext } from "react";
+import { TextContext } from "../TextContext.jsx";
+
+function TextList() {
+  const { texts } = useContext(TextContext);
+
   return (
     <ul>
       {texts.map((text, index) => (
@@ -7,3 +12,5 @@ export default function TextList({ texts }) {
     </ul>
   );
 }
+
+export default TextList;
